@@ -8,20 +8,25 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <div>
+      <Route>
         <Navigation />
+      </Route>
+
         <Switch>
-          <Route path='/:search?'>
-            <SearchPage />
-          </Route>
-          <Route path='/:type/:id'>
+        <Route path='/:type/:id'>
             <PetDetailsPage />
+          </Route>
+          <Route path='/pet-details-not-found'>
+            <PetDetailsNotFound />
+          </Route>
+          <Route path='/search'>
+            <SearchPage />
           </Route>
           <Route path='/:type?'>
             <HomePage />
           </Route>
         </Switch>
-      </div>
+      
     </Router>
   );
 }
